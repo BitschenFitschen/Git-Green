@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project #1</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+      #main {
+        height: 100%;
+        width: 88%;
+        float: right;
+        background-color: green;
+      }
+
+      #left-bar {
+      	float: left;
+      	height: 100%;
+      	width: 12%;
+      	background-color: gray;
+      }
+      
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Git Green</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button id="searchbutton" type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  <body>
+
+	<div id="main">
+		<div id="currentDiv">
+		<h1>Modules Pop up here</h1>	
+		</div>
+	</div>
+
+
+	<div id="left-bar">
+	<h2>List of top 100 here</h2>
+	</div>
+
+
+	<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Stock Stuff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td id:symbol>Symbol</td>
+      <td id=ask>Ask</td>
+      <td id=bid>Bid</td>
+      <td id=last>Last Trade Date</td>
+      <td id=low>Low</td>
+      <td id=high>High</td>
+      <td id=volume>Volume</td>
+      <td id=open>Open</td>
+      <td id=close>Close</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+		<tr>
+      <th scope="row">4</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<script>
+//we need the input from the search bar to be saved into this variable to be passed into the .get for Yahoo Fianance
+var searchTerm = ""
+
+var KEY = "K4FrZyyZTgnvqHT8F6VY" + "&text=" ;
+
+var APIURL = "https://www.enclout.com/api/v1/yahoo_finance/show.json?auth_token=";
+
+var queryURL = APIURL +  KEY + searchTerm;
+
+$.getJSON(queryURL, function(data) {
+	console.log(data);
+});
+    
+   
+
+    		
+
+
+
+</script>
+
+
+  </body>
+</html>
+
+
