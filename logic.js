@@ -111,8 +111,53 @@ var APIURL = "http://webhose.io/search?token=f613b0c1-4567-4751-8760-c3da580bc11
 
   });
 
+   var config = {
+    apiKey: "AIzaSyB5WJgKJ_QJwHUIItRHlSXA-wqqINki-Lg",
+    authDomain: "recent-search-f703c.firebaseapp.com",
+    databaseURL: "https://recent-search-f703c.firebaseio.com",
+    storageBucket: "recent-search-f703c.appspot.com",
+    messagingSenderId: "310199294002"
+  };
+  firebase.initializeApp(config);
 
+  var dataRef = firebase.database();
 
+    // Initial Values
+    var search = "";
 
+    // Capture Button Click
+    $("#search-button").on("click", function(event) {
+      event.preventDefault();
 
+      
+      search = $("#recent-input").val().trim();
 
+      $("#user-input").append("<div>" + search + "</div>");
+      // Code for the push
+      dataRef.ref().push({
+
+        search: search,
+        });
+      });
+
+      
+    dataRef.ref().on("child_added", function(childSnapshot) {
+
+      // Log everything that's coming out of snapshot
+      console.log(childSnapshot.val().search);
+
+      // Handle the errors
+    }, function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    });
+
+    dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+
+      console.log("limited:", snapshot.val());
+
+      // Change the HTML to reflect
+      $("#search-display").html(snapshot.val().name);
+
+       
+
+       });
