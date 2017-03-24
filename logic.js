@@ -1,3 +1,14 @@
+var setStock, text, sLen, i;
+
+setStock = ["ACAN", "ACCA", "ACOL", "ADVT", "AERO", "APHQF", "AGTK", "RSSFF", "AMMJ", "ACBFF", "ADYNF", "BLPG", "BLOZF", "CBDS", "CPMD", "CANL", "CANV", "CBIS", "CBICF", "CNBX", "CGRW", "CGRA", "CHUM", "CLSH", "CVSI", "MJTK", "DIGP", "DPWW", "ENRT", "ERBB", "ETST", "EDXC", "FFRMF", "FUTL", "FSPM", "GWPH", "GBHPF", "CANN", "GTSO", "GRNH", "GBLX", "GRCU", "GRWC", "PHOT", "HEMP", "HLSPY", "INSY", "JMDA", "KAYS", "KSHB", "LSCG", "LXRP",  "MJNE", "MJMJ", "MJNA", "MSRT", "MYDX", "MCPI", "MCIG", "MDBX", "MNTR", "MDCL", "NCAP", "NMUS", "NTRR", "OWCP", "OGRMF", "PMCB", "PNPL", "PRRE", "PZOO", "SRNA", "SPLIF", "SPRWF", "TAUG", "TRTC", "TCKF", "TBQBF", "THCZ", "THCBF", "TURV",  "USMA",  "VPCO", "VAPE", "VAPI", "VDGSF", "VPRB", "WDLF",  "OPMZ", "FTPM", "ZDPY", "ZYNE"];
+sLen = setStock.length;
+text = "<ul>";
+for (i = 0; i < sLen; i++) {
+    text += "<li>" + setStock[i] + "</li>";
+}
+text += "</ul>";
+document.getElementById("company-list").innerHTML = text;
+
 //javascript logicJS
 //we need the input from the search bar to be saved into this variable to be passed into the .get for Yahoo Fianance
 
@@ -75,17 +86,29 @@ new Markit.QuoteService("AAPL", function(jsonResult) {
     .done(function(response){
       console.log(response)
     
-    var shortenedArray = response.posts.slice(95,99);
+    var shortenedArray = response.posts.slice(45,46);
     for(var i = 0; i < shortenedArray.length; i++) {
       console.log(shortenedArray[i].title)
         $('#article-title').append('<span>' + shortenedArray[i].title + '</span>')
     }
 
-  var shortenedArray = response.posts.slice(95, 99);
+  var shortenedArray = response.posts.slice(45,46);
         for (var i = 0; i < shortenedArray.length; i++) {
             console.log(shortenedArray[i].thread.main_image)
-            $('#new-image').append('<img src = "' + shortenedArray[i].thread.main_image + '"/>')
+            $('#stock-image').append('<img src = "' + shortenedArray[i].thread.main_image + '"/>')
         }
+
+   var shortenedArray = response.posts.slice(45,46);
+    for(var i = 0; i < shortenedArray.length; i++) {
+      console.log(shortenedArray[i].title)
+        $('#article-text').append('<span>' + shortenedArray[i].text + '</span>')
+    }
+
+    var shortenedArray = response.posts.slice(45,46);
+    for(var i = 0; i < shortenedArray.length; i++) {
+      console.log(shortenedArray[i].title)
+        $('#news-url').append('<link>' + shortenedArray[i].url + '</link>')
+    }
 
 
   });

@@ -5,15 +5,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
-    <script src="logic.js"></script>
-   <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous">	
-  </script>
-  
-
   <nav class="navbar navbar-default">
   	<div class="container-fluid">
 
@@ -41,9 +32,9 @@
 
     <div class="top-companies" id="left-bar">
               <h2>Company List</h2>
-                 <ol class="company-list">
-                    <li class="list-items">company1</li>
-                 </ol>
+                 <ul id="company-list">
+                    <li></li>
+                 </ul>
     </div>
 
 	<div id="main">
@@ -78,12 +69,13 @@
     <!-- table display close -->
 
           <div class="news-container">
-            <h2 class="article-title" id="article-title">News Article Title</h2>
-            <img id="news-image" src="" alt="stock-image">
+            <h2 class="article-title" id="article-title"></h2>
+            <img id="news-image" class="news-image" src="" alt="stock-image">
             <p class="news-text" id="article-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu lectus non augue euismod ultricies eget quis neque. Vestibulum tempus commodo nunc, sed efficitur libero sagittis quis. In eu tristique nisl, vitae lacinia risus. Nulla rutrum volutpat commodo. Vivamus non sapien vel nisl fermentum consequat. Aliquam pulvinar leo quis ante suscipit, in auctor ex pulvinar. Suspendisse pretium urna nec ante imperdiet, suscipit sodales tortor iaculis. Integer non quam purus. Nunc scelerisque dignissim nisi, ac varius ligula facilisis vel.
-            <a class="News-Article-Link" id="news-url" href="">Link To Article!!!</a>
+            
             </p>
+            <a class="News-Article-Link" id="news-url" href=""></a>
+            
           </div>
           <!-- news container close -->
 
@@ -93,7 +85,13 @@
 	</div> 
   <!-- main section div close -->
 
-
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+    <script src="logic.js"></script>
+   <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous">  
+  </script>
   </body>
 </html>
 
