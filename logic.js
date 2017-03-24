@@ -1,6 +1,21 @@
 //javascript logicJS
 //we need the input from the search bar to be saved into this variable to be passed into the .get for Yahoo Fianance
 
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyB5WJgKJ_QJwHUIItRHlSXA-wqqINki-Lg",
+  authDomain: "recent-search-f703c.firebaseapp.com",
+  databaseURL: "https://recent-search-f703c.firebaseio.com",
+  storageBucket: "recent-search-f703c.appspot.com",
+  messagingSenderId: "310199294002"
+};
+firebase.initializeApp(config);
+
+
+var dataRef = firebase.database();
+
+
 var Markit = {};
 /**
 * Define the QuoteService.
@@ -51,7 +66,7 @@ new Markit.QuoteService("AAPL", function(jsonResult) {
     }
 
     //If all goes well, your quote will be here.
-    console.log(jsonResult);
+    // console.log(jsonResult);
 
     //Now proceed to do something with the data.
     $("h1").first().text(jsonResult.Name);
@@ -87,77 +102,61 @@ new Markit.QuoteService("AAPL", function(jsonResult) {
 var APIURL = "http://webhose.io/search?token=f613b0c1-4567-4751-8760-c3da580bc119&format=json&q=Cannabis%2C%20Marijuana%20thread.country%3AUS%20site_category%3Abusiness%20(site_type%3Anews)"
 
 
-  $.ajax({
-      url: APIURL,
-      method: "GET"
+$.ajax({
+    url: APIURL,
+    method: "GET"
 
-    })
-
-    .done(function(response){
-      console.log(response)
-    
+  }).done(function(response){
+    // console.log(response)
+  
     var shortenedArray = response.posts.slice(95,99);
     for(var i = 0; i < shortenedArray.length; i++) {
-      console.log(shortenedArray[i].title)
-        $('#ask').append('<span>' + shortenedArray[i].title + '</span>')
+      // console.log(shortenedArray[i].title)
+      $('#ask').append('<span>' + shortenedArray[i].title + '</span>')
     }
 
-  var shortenedArray = response.posts.slice(95, 99);
-        for (var i = 0; i < shortenedArray.length; i++) {
-            console.log(shortenedArray[i].thread.main_image)
-            $('#bid').append('<img src = "' + shortenedArray[i].thread.main_image + '"/>')
-        }
+    var shortenedArray = response.posts.slice(95, 99);
+    for (var i = 0; i < shortenedArray.length; i++) {
+    //       console.log(shortenedArray[i].thread.main_image)
+      $('#bid').append('<img src = "' + shortenedArray[i].thread.main_image + '"/>')
+    }
+});
 
 
+// Initial Values
+var search = "";
+
+// Capture Button Click
+$("#search-button").click(function(event) {
+  event.preventDefault();
+
+  search = $("#user-input").val().trim();
+  console.log(search);
+  // Code for the push
+  dataRef.ref().push({
+
+    search: search,
   });
+});
 
-   var config = {
-    apiKey: "AIzaSyB5WJgKJ_QJwHUIItRHlSXA-wqqINki-Lg",
-    authDomain: "recent-search-f703c.firebaseapp.com",
-    databaseURL: "https://recent-search-f703c.firebaseio.com",
-    storageBucket: "recent-search-f703c.appspot.com",
-    messagingSenderId: "310199294002"
-  };
-  firebase.initializeApp(config);
+    
+dataRef.ref().on("child_added", function(childSnapshot) {
 
-  var dataRef = firebase.database();
+  // Log everything that's coming out of snapshot
+  // console.log(childSnapshot.val().search);
 
-    // Initial Values
-    var search = "";
+  // Handle the errors
+}, function(errorObject) {
+  console.log("Errors handled: " + errorObject.code);
+});
 
-    // Capture Button Click
-    $("#search-button").on("click", function(event) {
-      event.preventDefault();
+dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
 
-      
-      search = $("#recent-input").val().trim();
+  // console.log("limited:", snapshot.val());
 
-      $("#user-input").append("<div>" + search + "</div>");
-      // Code for the push
-      dataRef.ref().push({
+  // Change the HTML to reflect
+  $("#most-recent-search").html(snapshot.val().name);
+});
 
-        search: search,
-        });
-      });
 
-      
-    dataRef.ref().on("child_added", function(childSnapshot) {
 
-      // Log everything that's coming out of snapshot
-      console.log(childSnapshot.val().search);
-
-      // Handle the errors
-    }, function(errorObject) {
-      console.log("Errors handled: " + errorObject.code);
-    });
-
-    dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
-
-      console.log("limited:", snapshot.val());
-
-      // Change the HTML to reflect
-      $("#search-display").html(snapshot.val().name);
-
-       
-
-       });
