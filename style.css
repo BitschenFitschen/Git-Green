@@ -28,6 +28,7 @@
       	height: 100%;
       	width: 12%;
       	background-color: gray;
+         border-radius: 10px;
       }
       
       html, body {
