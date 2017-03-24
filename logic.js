@@ -10,6 +10,7 @@ var config = {
   storageBucket: "recent-search-f703c.appspot.com",
   messagingSenderId: "310199294002"
 };
+
 firebase.initializeApp(config);
 
 
@@ -77,8 +78,7 @@ new Markit.QuoteService("AAPL", function(jsonResult) {
     */
 });
 
-   var APIURL = "http://webhose.io/search?token=f613b0c1-4567-4751-8760-c3da580bc119&format=json&q=Cannabis%2C%20Marijuana%20thread.country%3AUS%20site_category%3Abusiness%20(site_type%3Anews)"
-
+var APIURL = "http://webhose.io/search?token=f613b0c1-4567-4751-8760-c3da580bc119&format=json&q=Cannabis%2C%20Marijuana%20thread.country%3AUS%20site_category%3Abusiness%20(site_type%3Anews)";
 
 $.ajax({
     url: APIURL,
@@ -106,6 +106,7 @@ var search = "";
 
 // Capture Button Click
 $("#search-button").click(function(event) {
+
   event.preventDefault();
   search = $("#user-input").val().trim();
   console.log(search);
@@ -120,7 +121,7 @@ $("#search-button").click(function(event) {
 dataRef.ref().on("child_added", function(childSnapshot) {
 
   // Log everything that's coming out of snapshot
-  // console.log(childSnapshot.val().search);
+  console.log(childSnapshot.val().search);
 
   // Handle the errors
 }, function(errorObject) {
@@ -132,5 +133,5 @@ dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functio
   // console.log("limited:", snapshot.val());
 
   // Change the HTML to reflect
-  $("#most-recent-search").html(snapshot.val().name);
+  $("#most-recent-search").html(snapshot.val().search);
 });
