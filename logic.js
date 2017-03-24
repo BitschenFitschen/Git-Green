@@ -51,10 +51,11 @@ new Markit.QuoteService("AAPL", function(jsonResult) {
     }
 
     //If all goes well, your quote will be here.
-    console.log(jsonResult);
+    console.log(jsonResult.Name);
 
     //Now proceed to do something with the data.
-    $("h1").first().text(jsonResult.Name);
+    $("#company-title").first().text(jsonResult.Name);
+
 
     /**
     * Need help? Visit the API documentation at:
@@ -62,29 +63,7 @@ new Markit.QuoteService("AAPL", function(jsonResult) {
     */
 });
 
-// <!--var searchTerm = $('search-button').val();
-
-// var KEY = "K4FrZyyZTgnvqHT8F6VY" + "&text=" ;
-
-// var APIURL = "https://www.enclout.com/api/v1/yahoo_finance/show.json?auth_token=";
-
-// var queryURL = APIURL +  KEY + searchTerm;
-
-
-//  $.ajax({
-// 	dataType: "json",
-// 	url: queryURL,
-// 	method: "GET"
-// 	})
-
-//  .done(function(response){
-// 		console.log(response)
-// 	});
-   
-  
-
-
-var APIURL = "http://webhose.io/search?token=f613b0c1-4567-4751-8760-c3da580bc119&format=json&q=Cannabis%2C%20Marijuana%20thread.country%3AUS%20site_category%3Abusiness%20(site_type%3Anews)"
+   var APIURL = "http://webhose.io/search?token=f613b0c1-4567-4751-8760-c3da580bc119&format=json&q=Cannabis%2C%20Marijuana%20thread.country%3AUS%20site_category%3Abusiness%20(site_type%3Anews)"
 
 
   $.ajax({
@@ -99,13 +78,13 @@ var APIURL = "http://webhose.io/search?token=f613b0c1-4567-4751-8760-c3da580bc11
     var shortenedArray = response.posts.slice(95,99);
     for(var i = 0; i < shortenedArray.length; i++) {
       console.log(shortenedArray[i].title)
-        $('#ask').append('<span>' + shortenedArray[i].title + '</span>')
+        $('#article-title').append('<span>' + shortenedArray[i].title + '</span>')
     }
 
   var shortenedArray = response.posts.slice(95, 99);
         for (var i = 0; i < shortenedArray.length; i++) {
             console.log(shortenedArray[i].thread.main_image)
-            $('#bid').append('<img src = "' + shortenedArray[i].thread.main_image + '"/>')
+            $('#new-image').append('<img src = "' + shortenedArray[i].thread.main_image + '"/>')
         }
 
 
@@ -114,5 +93,56 @@ var APIURL = "http://webhose.io/search?token=f613b0c1-4567-4751-8760-c3da580bc11
 
 
 
+
+
+
+// //firebase info retention(recent searches)
+// var config = {
+//     apiKey: "AIzaSyB5WJgKJ_QJwHUIItRHlSXA-wqqINki-Lg",
+//     authDomain: "recent-search-f703c.firebaseapp.com",
+//     databaseURL: "https://recent-search-f703c.firebaseio.com",
+//     storageBucket: "recent-search-f703c.appspot.com",
+//     messagingSenderId: "310199294002"
+//   };
+//   firebase.initializeApp(config);
+
+//  var dataRef = firebase.database();
+
+//    // Initial Values
+//     var search = "";
+
+//    // Capture Button Click
+//     $("#recent-search").on("click", function(event) {
+//       event.preventDefault();
+
+     
+//       search = $("#recent-input").val().trim();
+
+//      // Code for the push
+//       dataRef.ref().push({
+
+//        search: search,
+//         });
+//       });
+
+     
+//     dataRef.ref().on("child_added", function(childSnapshot) {
+
+//      // Log everything that's coming out of snapshot
+//       console.log(childSnapshot.val().search);
+
+//      // Handle the errors
+//     }, function(errorObject) {
+//       console.log("Errors handled: " + errorObject.code);
+//     });
+
+//    dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+
+//      console.log("limited:", snapshot.val());
+
+//      // Change the HTML to reflect
+//       $("#search-display").html(snapshot.val().name);
+
+//       });
 
 
