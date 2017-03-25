@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <nav class="navbar navbar-default">
+  	<div class="container-fluid">
+
+   		 <div class="navbar-header">
+      			<a class="navbar-brand" id="logo-space" href="#">Git Green</a>
+   		 </div>
+
+
+   		 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <form class="control-group form-inline">
+              <div class="form-group">
+                  <input type="text" id="sym" class="input" placeholder="Stock Symbol">
+                  <button id="myBtn" type="submit" class="btn btn-primary" data-loading-text="Loading quote data...">Get Quote</button>
+          </form>
+
+   		        </div><!-- /.navbar-collapse -->
+       </div><!-- /.container-fluid -->
+     </nav>
+
+
+  <body>
+
+    <div class="top-companies" id="left-bar">
+    <h2 id="company-list-title">Top Companies</h2>
+    <ul class="company-list">
+      <li>SMG</li>
+      <li>GOOG</li>
+      <li>GWPH</li>
+    </ul>
+
+    <h2 id="recent-searches-title">Recent Searches</h2>
+    <ul class="recent-searches">
+      <li id="most-recent-search">BLAZ</li>
+      <li id="most-recent-search">HEMP</li>
+      <li id="most-recent-search">BURN</li>
+    </ul>
+    </div>
+
+
+    <div id="Main">
+	  <div id="myModal" class="modal">
+    <div class="modal-content">
+    <span class="close">&times;</span>
+		  <div class="boxes">
+		    <h2 id="company-title"></h2>
+        <div id="stock-num">
+          <table cellspacing="0" cellpadding="3" border="1">
+          <tr>
+          <th class="table-item"> Symbol </th>
+          <th class="table-item"> Last Trade </th>
+          <th class="table-item"> Change </th>
+          <th class="table-item"> Change % </th>
+          <th class="table-item"> Change YTD </th>
+          <th class="table-item"> Open </th>
+          <th class="table-item"> Day's Low </th>
+          <th class="table-item"> Day's High </th>
+          <th class="table-item"> Volume </th>
+
+          </tr>
+          <tr>
+          <td id="symbol"></td>
+          <td id="lastTrade"></td>
+          <td id="change"></td>
+          <td id="change-per"></td>
+          <td id="change-YTD"></td>
+          <td id="open"></td>
+          <td id="daysLow"></td>
+          <td id="daysHigh"></td>
+          <td id="volume"></td>
+          </tr>
+          </table>
+        </div>
+    <!-- table display close -->
+          <hr>
+            
+            <!-- contains HTML elements/text/link/img only for display/presentation purposes.... -->
+            <div class="news-container">
+            <h3 class="article-title" id="article-title">Cannabis Capitalist: Scotts Miracle-Gro CEO Bets Big On Pot Growers</h3>
+            <img id="news-image" src="cannabis-article-image.jpg" alt="stock-image">
+            <p class="news-text" id="article-text">
+            Strapped into the pilot's seat of his private jet, Scotts Miracle-Gro CEO Jim Hagedorn thrusts the throttle forward and hurtles down the runway, a typical start to the day for the former F-16 fighter pilot, who commutes 500 miles from his home on Long Island, N.Y. to his office outside Columbus, Ohio. For an hour and a half every morning and every afternoon, Hagedorn sits behind the control stick of his plane, pushes the seat back and lets his mind run wild.
+            </p>
+            <a class="News-Article-Link" id="news-url" href="https://www.forbes.com/sites/danalexander/2016/07/06/cannabis-capitalist-scotts-miracle-gro-ceo-bets-big-on-pot-growers/#5b535b956155">Link To Article!!!</a>
+          </div>
+          <!-- news container close -->
+
+       </div>
+      <!-- individual boxes close -->
+      </div>
+      <!-- end of Modal content -->
+	  </div>
+  <!-- modal section div close -->
+  </div> 
+  <!-- end of Main -->
+
+
+
+<!--Remember to keep script tags at bottom HTML -->
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="logic.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+
+  </body>
+</html>
