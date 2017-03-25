@@ -16,6 +16,12 @@
         border-width: 2px;
         border-radius: 10px;
       }
+
+      #change{
+        max-width: 7ch;
+        overflow: hidden;
+      }
+
       #news-image{
         float: left;
         margin: 8px;
@@ -25,10 +31,13 @@
 
       #left-bar {
       	float: left;
-      	height: 100%;
+      	height: 50%;
       	width: 12%;
       	background-color: gray;
          border-radius: 10px;
+         border-style: groove;
+         border-width: 2px;
+
       }
       
       html, body {

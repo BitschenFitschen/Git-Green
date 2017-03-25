@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <nav class="navbar navbar-default">
+  	<div class="container-fluid">
+
+   		 <div class="navbar-header">
+      			<a class="navbar-brand" id="logo-space" href="#">Git Green</a>
+   		 </div>
+
+
+   		 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <form class="control-group form-inline">
+          <div class="form-group">
+            <input type="text" id="sym" class="input" placeholder="Enter symbol">
+            <button type="submit" class="btn btn-primary" data-loading-text="Loading quote data...">Get Quote</button>
+          </form>
+
+   		   </div><!-- /.navbar-collapse -->
+     </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <body>
+
+    <div class="top-companies" id="left-bar">
+    <h2>Company List</h2>
+    <ol class="company-list">
+      <li class="list-items">company1</li>
+    </ol>
+
+    <h2>Recent Searches</h2>
+    <ol class="recent-searches">
+      <li id="most-recent-search">First Result</li>
+    </ol>
+    </div>
+
+
+
+	  <div id="main">
+		  <div class="boxes">
+		    <h2 id="company-title"></h2>
+        <div id="stock-num">
+          <table cellspacing="0" cellpadding="3" border="1">
+          <tr>
+          <th>Symbol</th>
+          <th>Last Trade</th>
+          <th>Change</th>
+          <th>Open</th>
+          <th>Day's Low</th>
+          <th>Day's High</th>
+          <th>Volume</th>
+          </tr>
+          <tr>
+          <td id="symbol"></td>
+          <td id="lastTrade"></td>
+          <td id="change"></td>
+          <td id="open"></td>
+          <td id="daysLow"></td>
+          <td id="daysHigh"></td>
+          <td id="volume"></td>
+          </tr>
+          </table>
+        </div>
+    <!-- table display close -->
+          <hr>
+
+            <div class="news-container">
+            <h3 class="article-title" id="article-title">News Article Title</h3>
+            <img id="news-image" src="" alt="stock-image">
+            <p class="news-text" id="article-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu lectus non augue euismod ultricies eget quis neque. Vestibulum tempus commodo nunc, sed efficitur libero sagittis quis. In eu tristique nisl, vitae lacinia risus. Nulla rutrum volutpat commodo. Vivamus non sapien vel nisl fermentum consequat. Aliquam pulvinar leo quis ante suscipit, in auctor ex pulvinar. Suspendisse pretium urna nec ante imperdiet, suscipit sodales tortor iaculis. Integer non quam purus. Nunc scelerisque dignissim nisi, ac varius ligula facilisis vel.
+            </p>
+            <a class="News-Article-Link" id="news-url" href="">Link To Article!!!</a>
+          </div>
+          <!-- news container close -->
+
+      </div>
+      <!-- individual boxes close -->
+
+	  </div>
+  <!-- main section div close -->
+
+
+
+<!--Remember to keep script tags at bottom HTML -->
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="logic.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+  </body>
+</html>
