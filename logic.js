@@ -1,5 +1,14 @@
 
-// var setStock = ["ACAN", "ACCA", "ACOL", "ADVT", "AERO", "APHQF", "AGTK", "RSSFF", "AMMJ", "ACBFF", "ADYNF", "BLPG", "BLOZF", "CBDS", "CPMD", "CANL", "CANV", "CBIS", "CBICF", "CNBX", "CGRW", "CGRA", "CHUM", "CLSH", "CVSI", "MJTK", "DIGP", "DPWW", "ENRT", "ERBB", "ETST", "EDXC", "FFRMF", "FUTL", "FSPM", "GWPH", "GBHPF", "CANN", "GTSO", "GRNH", "GBLX", "GRCU", "GRWC", "PHOT", "HEMP", "HLSPY", "INSY", "JMDA", "KAYS", "KSHB", "LSCG", "LXRP",  "MJNE", "MJMJ", "MJNA", "MSRT", "MYDX", "MCPI", "MCIG", "MDBX", "MNTR", "MDCL" "NCAP", "NMUS", "NTRR", "OWCP", "OGRMF", "PMCB", "PNPL", "PRRE", "PZOO", "SRNA", "SPLIF", "SPRWF", "TAUG", "TRTC", "TCKF", "TBQBF", "THCZ", "THCBF", "TURV",  "USMA",  "VPCO", "VAPE", "VAPI", "VDGSF", "VPRB", "WDLF",  "OPMZ", "FTPM", "ZDPY", "ZYNE"]
+var setStock, text, sLen, i;
+
+setStock = ["SMG", "ACAN", "CCAA", "ACOL", "DVT", "AERO", "WEDD", "AGTK", "RSSFF", "AMMJ", "ACBFF", "ADYNF", "BLPG", "BLOZF", "CBDS", "CPMD", "CANL", "CANV", "CBIS", "CBICF", "CNBX", "CGRW", "CGRA", "CHUM", "CLSH", "CVSI", "MJTK", "DIGP", "DPWW", "ENRT", "ERBB", "ETST", "EDXC", "FFRMF", "FUTL", "FSPM", "GWPH", "GBHPF", "CANN", "GTSO", "GRNH", "GBLX", "GRCU", "GRWC", "PHOT", "HEMP", "HLSPY", "INSY", "JMDA", "KAYS", "KSHB", "LSCG", "LXRP",  "MJNE", "MJMJ", "MJNA", "MSRT", "MYDX", "MCPI", "MCIG", "MDBX", "MNTR", "MDCL", "NCAP", "NMUS", "NTRR", "OWCP", "OGRMF", "PMCB", "PNPL", "PRRE", "PZOO", "SRNA", "SPLIF", "SPRWF", "TAUG", "TRTC", "TCKF", "TBQBF", "THCZ", "THCBF", "TURV",  "USMA",  "VPCO", "VAPE"];
+sLen = setStock.length;
+text = "<ul>";
+for (i = 0; i < sLen; i++) {
+    text += "<li>" + setStock[i] + "</li>";
+}
+text += "</ul>";
+document.getElementById("company-list").innerHTML = text;
  
 
 //javascript logicJS

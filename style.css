@@ -7,12 +7,12 @@
 
 #company-list-title{
       text-align: center;
-      font-family: Arial;
+      font-family: Garamond;
 }
 
 #recent-searches-title{
     text-align: center;
-    font-family: Arial;
+    font-family: Garamond;
 }
 
 .modal {
@@ -84,14 +84,15 @@
 }
 
 #left-bar {
-      opacity: 0.8;
+      opacity: 0.65;
       float: left;
-      height: 50%;
-      width: 12%;
+      height: 45%;
+      width: 15%;
       background-color: gray;
       border-radius: 10px;
       border-style: groove;
-      border-width: 2px;
+      border-width: 6px;
+      overflow: auto;
 
       }
       
